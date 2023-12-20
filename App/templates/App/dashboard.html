@@ -1,0 +1,19 @@
+{% block content %}
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Submit Excel</button>
+  </form>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Contact</th>
+    </tr>
+    {% for tele in data %}
+    <tr>
+      <td>{{ tele.customer_name }}</td>
+      <td>{{ tele.customer_contact }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+{% endblock %}
